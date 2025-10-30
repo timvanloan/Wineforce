@@ -1,0 +1,47 @@
+<template>
+  <div class="slds-grid slds-align_absolute-center slds-p-around_medium wineforceAgent">
+    <section class="agent-modal slds-p-around_large slds-card slds-theme_alert-texture">
+      <header class="slds-media slds-m-bottom_medium">
+        <div class="slds-media__figure">
+          <!-- Placeholder for Agentforce cloud logo -->
+          <lightning-icon icon-name="utility:cloud" size="medium" alternative-text="Agentforce" class="slds-icon-text-default"></lightning-icon>
+        </div>
+        <div class="slds-media__body">
+          <h1 class="slds-text-heading_medium slds-text-color_inverse">AGENTFORCE WINEFORCE AGENT</h1>
+          <p class="slds-text-title slds-text-color_inverse-weak">Salesforce</p>
+        </div>
+      </header>
+
+      <div class="slds-chat slds-chat_base slds-scrollable_y slds-p-around_small chat-body">
+        <ul class="slds-chat-list">
+          <template for:each={messages} for:item="msg">
+            <li key={msg.id} class="slds-chat-listitem slds-chat-listitem_inbound">
+              <div class="slds-chat-message">
+                <span class="slds-avatar slds-avatar_x-small slds-chat-avatar"></span>
+                <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                  <span>{msg.text}</span>
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+
+      <div class="slds-m-top_medium">
+        <div class="slds-form-element">
+          <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon_right">
+              <input type="text" class="slds-input input-dark" placeholder="Type your message..." value={draftMessage} oninput={handleInput} onkeydown={handleKeydown}/>
+              <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" onclick={handleSend} title="Send favorite">
+                <lightning-icon icon-name="utility:favorite" alternative-text="Favorite" size="x-small" class="slds-icon-text-warning"></lightning-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  </template>
+
+
